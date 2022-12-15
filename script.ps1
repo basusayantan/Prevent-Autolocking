@@ -43,6 +43,7 @@ if ((New-Object PSCredential ("default", $code)).GetNetworkCredential().Password
 		Start-Sleep -Seconds 5
 		notepad.exe
 		Start-Sleep -Seconds 1
+		$id = (Get-Process "notepad" | Sort-Object -Property starttime -Descending)[0].id
 		$WShell = New-Object -ComObject Wscript.Shell
 		$check = $WShell.AppActivate("notepad")
 		Start-Sleep -Seconds 5
@@ -50,7 +51,7 @@ if ((New-Object PSCredential ("default", $code)).GetNetworkCredential().Password
 			$WShell.SendKeys("G")
 			Start-Sleep -Seconds 5
 			$timer++
-			$check = @($true, $false)[(Get-Process "notepad" -ErrorAction SilentlyContinue).id -eq $null]
+			$check = @($true, $false)[(Get-Process -Id $id -ErrorAction SilentlyContinue).id -eq $null]
 		}
 	} else { Write-Host "***TOO FEW ARGUMENTS***" }
 } else { Write-Host "***UNAUTHORIZED***" }
