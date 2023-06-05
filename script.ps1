@@ -5,9 +5,9 @@
 USAGE: 
 In PowerShell, navigate to directory and enter
 
-	.\script.ps1 -minutes <No. of Minutes> -mouse --> for simulating cursor movement
+	./script.ps1 -minutes <No. of Minutes> -mouse --> for simulating cursor movement
 	OR
-	.\script.ps1 -minutes <No. of Minutes> -keyboard --> for simulating keyboard input
+	./script.ps1 -minutes <No. of Minutes> -keyboard --> for simulating keyboard input
 
 If minutes parameter is omitted, defaults to 45 minutes. For ease of use, configure batch file to run script.
 NOTE: Code for -keyboard option only works when no other instance of Notepad is present. 
